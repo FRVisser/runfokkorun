@@ -6,28 +6,53 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
   <style>
-      @import url('https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight:700');
-    html {
-      background: url(https://media.giphy.com/media/l2Sqc3POpzkj5r8SQ/giphy.gif) no-repeat center center fixed;
-      background-size: cover;
-    }
+  @import url('https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight:700');
+  html {
+    background: url(https://media.giphy.com/media/l2Sqc3POpzkj5r8SQ/giphy.gif) no-repeat center center fixed;
+    background-size: cover;
+  }
 
-    h1 {
-      font-family: 'Zilla Slab Highlight', cursive;
-      font-size: 4em;
-      margin: .2em .5em;
-      color: white;
-      font-weight: bold;
-    }
+  h1 {
+    font-family: 'Zilla Slab Highlight', cursive;
+    font-size: 4em;
+    margin: .2em .5em;
+    color: white;
+    font-weight: bold;
+  }
 
-    body {
-      height: 100%;
-    }
+  #clock {
+    font-family: 'Zilla Slab Highlight', cursive;
+    font-size: 4em;
+    margin: .2em .5em;
+    color: white;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+  body {
+    height: 100%;
+  }
 
   </style>
 </head>
 
 <body>
   <h1>Run Fokko! Run!</h1>
+  <script type="text/javascript">
+  window.onload = displayTime;
+
+  function displayTime() {
+    var element = document.getElementById("clock");
+  var d=new Date();
+  var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds();
+  if(nmin<=9) nmin="0"+nmin
+  if(nsec<=9) nsec="0"+nsec;
+    element.innerHTML = ""+nhour+":"+nmin+":"+nsec+"";
+    setTimeout(displayTime, 1000);
+  }
+</script>
+<span id="clock"></span>
 
 </html>
